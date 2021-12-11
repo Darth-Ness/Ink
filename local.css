@@ -23,5 +23,9 @@ textarea {
     padding: 15px;
     margin-left: 25px;
     position: relative;
-    bottom: 33px;
+    bottom: 38px;
+    transition: box-shadow 500ms;
+}
+#upload label:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
