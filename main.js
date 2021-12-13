@@ -1,8 +1,16 @@
 function update() {
-    if (document.getElementById("text").value.indexOf("\r\n") == -1) {
-        var textArea = document.getElementById("text").value.replaceAll("\n", "<br>");
-        document.getElementById("output").innerHTML = textArea;
-
+    if (isEdit == true) {
+    var textArea = document.getElementById("text").value.replaceAll("\n", "<br>");
+    document.getElementById("output").innerHTML = textArea;
+    document.getElementById("text").style.display = "none";
+    isEdit = false;
+    document.getElementById("button1").innerHTML = "Edit Project";
+    }
+    else {
+        document.getElementById("text").style.display = "revert";
+        document.getElementById("button1").innerHTML = "View Project";
+        document.getElementById("output").innerHTML = "";
+        isEdit = true;
     }
 }
 function save() {
@@ -18,7 +26,7 @@ function save() {
 
     document.body.removeChild(download);
 }
-
+var isEdit = true;
 let input = document.querySelector('input')
 let textarea = document.querySelector('textarea')
 input.addEventListener('change', () => {
