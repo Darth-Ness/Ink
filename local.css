@@ -11,18 +11,3 @@ textarea {
 #selectFile {
     opacity: 0;
 }
-#upload label {
-    border-radius: 7px;
-    background-color: #1c1f25;
-    box-shadow: 0 4px 7px rgba(201, 201, 201, 0.6);
-    align-items: center;
-    justify-content: center;
-    color: #c9c9c9;
-    padding: 10px;
-    position: relative;
-    bottom: 38px;
-    transition: box-shadow 500ms;
-}
-#upload label:hover {
-    box-shadow: 0 4px 10px rgb(201, 201, 201);
-}
