@@ -12,7 +12,7 @@ textarea {
     opacity: 0;
 }
 #upload label {
-    border-radius: 20px;
+    border-radius: 7px;
     background-color: #1c1f25;
     box-shadow: 0 4px 7px rgba(201, 201, 201, 0.6);
     align-items: center;
@@ -20,8 +20,7 @@ textarea {
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    padding: 15px;
-    margin-left: 15px;
+    padding: 10px;
     position: relative;
     bottom: 38px;
     transition: box-shadow 500ms;
