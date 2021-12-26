@@ -17,9 +17,7 @@ textarea {
     box-shadow: 0 4px 7px rgba(201, 201, 201, 0.6);
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
+    color: #c9c9c9;
     padding: 10px;
     position: relative;
     bottom: 38px;
