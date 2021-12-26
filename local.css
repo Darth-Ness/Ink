@@ -13,19 +13,19 @@ textarea {
 }
 #upload label {
     border-radius: 20px;
-    background-image: linear-gradient(-150deg, rgba(255, 255, 255, 0.6), rgba(95, 94, 94, 0.5));
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+    background-color: #1c1f25;
+    box-shadow: 0 4px 7px rgba(201, 201, 201, 0.6);
     align-items: center;
     justify-content: center;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
     padding: 15px;
-    margin-left: 25px;
+    margin-left: 15px;
     position: relative;
     bottom: 38px;
     transition: box-shadow 500ms;
 }
 #upload label:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgb(201, 201, 201);
 }
