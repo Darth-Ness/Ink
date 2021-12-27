@@ -1,14 +1,17 @@
 <link rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
 <link rel="stylesheet" type="text/css" href="local.css">
 <title>Ink Word Processor</title>
+<body>
 <div class="banner">
     <button id="button1" onclick="update()">View Project</button>
     <button onclick="save()">Save Project</button>
-    <div id="upload" style="width: fit-content;">
+    <div id="upload" >
         <input id="selectFile" type="file"/>
         <button id="upload"><label for="selectFile">Upload File</label></button>
     </div>
 </div>
-<h3 class="center" id="output"></h3>
+<div id="viewport">
+	<h3 id="output"></h3>
+</div>
 <center><textarea id="text"></textarea><br><br>
 <script src="main.js"></script>

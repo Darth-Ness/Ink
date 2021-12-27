@@ -10,5 +10,6 @@ textarea {
     font-weight: 900;
     background-color: #2e3440
 }
-#selectFile {opacity: 0;}
+#selectFile {opacity: 0; width: inherit; height: inherit;}
 #upload {position: relative;bottom: 19.8; right: 17px}
+#output {padding: 12px}
