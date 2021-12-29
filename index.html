@@ -2,16 +2,12 @@
 <link rel="stylesheet" type="text/css" href="local.css">
 <title>Ink</title>
 <body>
-<div class="banner">
+<div class="banner center">
     <button id="button1" onclick="update()">View Project</button>
     <button onclick="save()">Save Project</button>
-    <div id="upload" >
-        <input id="selectFile" type="file"/>
-        <button id="upload"><label for="selectFile">Upload File</label></button>
-    </div>
+    <button onclick="upload()">Upload File</label></button>
+    <button onclick="shortcuts()">Shortcuts</button>
 </div>
-<div id="viewport">
-	<h3 id="output"></h3>
-</div>
-<center><textarea id="text"></textarea><br><br>
+<h3 id="output"></h3>
+<center><textarea id="text"></textarea>
 <script src="main.js"></script>
