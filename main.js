@@ -27,6 +27,7 @@ function save() {
     document.body.removeChild(download);
 }
 var isEdit = true;
+function loadFile() {
 let input = document.querySelector('input')
 let textarea = document.querySelector('textarea')
 input.addEventListener('change', () => {
@@ -47,6 +48,7 @@ input.addEventListener('change', () => {
   
     reader.readAsText(file);
 });
+}
 document.addEventListener("keydown", function (event) {
 	if (event.ctrlKey && event.key == "e"){
 	document.getElementById("text").focus();}
@@ -54,3 +56,15 @@ document.addEventListener("keydown", function (event) {
 		update();
 	}
 });
+function upload() {
+	var upload = document.createElement('input');
+	upload.setAttribute('type', 'file');
+	upload.style.display = 'none';
+	document.body.appendChild(upload);
+	upload.click();
+	loadFile();
+	document.body.removeChild(upload);
+}
+function shortcuts() {
+	window.alert("Focus Document - Ctrl + E\nSwitch Mode - Ctrl + Y");
+}
