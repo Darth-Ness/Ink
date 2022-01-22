@@ -1,6 +1,3 @@
-while (1) {
-    document.getElementById("output").innerHTML = document.getElementById("text").value;
-}
 function save() {
     var fileName = prompt("Enter a name for your document.");
     var download = document.createElement('a');
