@@ -1,5 +1,5 @@
 while (1) {
-    if (document.getElementById("output").innerHTML != "null") {
+    if (document.getElementById("textarea").value != "null") {
         document.getElementById("output").innerHTML = document.getElementById("textarea").value;
     }
     yield;
