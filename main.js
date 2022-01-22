@@ -1,17 +1,6 @@
-function update() {
-    if (isEdit == true) {
-    var textArea = document.getElementById("text").value.replaceAll("\n", "<br>");
-    document.getElementById("output").innerHTML = textArea;
-    document.getElementById("text").style.display = "none";
-    isEdit = false;
-    document.getElementById("button1").innerHTML = "Edit Project";
-    }
-    else {
-        document.getElementById("text").style.display = "revert";
-        document.getElementById("button1").innerHTML = "View Project";
-        document.getElementById("output").innerHTML = "";
-        isEdit = true;
-    }
+while (1) {
+    document.getElementById("output").innerHTML = document.getElementById("textarea").value;
+    return;
 }
 function save() {
     var fileName = prompt("Enter a name for your document.");
