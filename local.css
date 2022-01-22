@@ -3,7 +3,7 @@ textarea {
     height: 100%;
     resize: none;
     padding: 15px;
-    box-shadow: 4px 4px #000;
+    box-shadow: 4px 4px rgba(110, 110, 110, 0.3);
     font-size: 20px;
     border-radius: 15px;
     color: #fff;
