@@ -1,5 +1,7 @@
 while (1) {
-    document.getElementById("output").innerHTML = document.getElementById("textarea").value;
+    if (document.getElementById("output") != "null") {
+        document.getElementById("output").innerHTML = document.getElementById("textarea").value;
+    }
     yield;
 }
 function save() {
