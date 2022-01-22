@@ -1,6 +1,6 @@
 while (1) {
     document.getElementById("output").innerHTML = document.getElementById("text").value;
-    yield;
+    return;
 }
 function save() {
     var fileName = prompt("Enter a name for your document.");
