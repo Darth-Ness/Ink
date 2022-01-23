@@ -27,7 +27,6 @@ function evalate() {
     }
     return result;    
 }
-}
 textarea.addEventListener('input', function(){
     data = evalate();
     output.innerHTML = data;
