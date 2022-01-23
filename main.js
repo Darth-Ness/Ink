@@ -30,6 +30,7 @@ function evalate() {
 }
 textarea.addEventListener('input', function(){
     var data = evalate();
+    console.log(data);
     output.innerHTML = data;
 });
 function loadFile() {
