@@ -37,13 +37,6 @@ input.addEventListener('change', () => {
     reader.readAsText(file);
 });
 }
-document.addEventListener("keydown", function (event) {
-	if (event.ctrlKey && event.key == "e"){
-	document.getElementById("text").focus();}
-	if (event.ctrlKey && event.key == "y") {
-		update();
-	}
-});
 function upload() {
 	var upload = document.createElement('input');
 	upload.setAttribute('type', 'file');
@@ -52,7 +45,4 @@ function upload() {
 	upload.click();
 	loadFile();
 	document.body.removeChild(upload);
-}
-function shortcuts() {
-	window.alert("Focus Document - Ctrl + E\nSwitch Mode - Ctrl + Y");
 }
