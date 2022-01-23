@@ -13,8 +13,24 @@ function save() {
 }
 let output = document.getElementById('output');
 let textarea = document.querySelector('textarea');
+function evalate() {
+    //var lines = textarea.value.replace("Microsoft", "W3Schools");
+    var lines = textarea.value.split("\n");
+    var result = [];
+    var i;
+    while (i < lines.length ) {
+        if (line[i].indexOf("+") != -1 && line[i].indexOf("-") != -1 && line[i].indexOf("*") != -1 && line[i].indexOf("/") != -1) {
+            result.push(eval(line[i]);)
+        }
+        else {result.push(line[i])}
+        i++;
+    }
+    return result;    
+}
+}
 textarea.addEventListener('input', function(){
-    output.innerHTML = textarea.value;
+    data = evalate();
+    output.innerHTML = data;
 });
 function loadFile() {
 let input = document.querySelector('input');
