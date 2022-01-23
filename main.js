@@ -13,7 +13,7 @@ function save() {
 }
 let output = document.getElementById('output');
 let textarea = document.querySelector('textarea');
-textarea.addEventListener('change', function(){
+textarea.addEventListener('input', function(){
     output.innerHTML = textarea.value;
 });
 function loadFile() {
