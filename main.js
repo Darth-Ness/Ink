@@ -11,10 +11,13 @@ function save() {
 
     document.body.removeChild(download);
 }
-var isEdit = true;
 function loadFile() {
-let input = document.querySelector('input')
-let textarea = document.querySelector('textarea')
+let input = document.querySelector('input');
+let output = document.getElementById('output');
+let textarea = document.querySelector('textarea');
+textarea.addEventListener('change', function(){
+    output.innerHTML = textarea.value;
+});
 input.addEventListener('change', () => {
     let files = input.files;
     if (files.length == 0) return;

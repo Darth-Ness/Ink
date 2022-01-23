@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
 <link rel="stylesheet" type="text/css" href="local.css">
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <title>Ink</title>
 <body>
 <div class="banner center">
@@ -9,15 +8,7 @@
     <button onclick="shortcuts()">Shortcuts</button>
 </div>
 <div style="position: absolute;left:50%" id="app" class="center">
-    {{ message }}
+   <h3 id="output"></h3>
 </div>
-<script>
-    var app = new Vue({
-    el: '#app',
-    data: {
-        message: document.getElementById("text")
-    }
-})
-</script>
 <textarea class="left" id="text"></textarea>
 <script src="main.js"></script>
