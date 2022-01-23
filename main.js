@@ -29,7 +29,7 @@ function evalate() {
     return result;    
 }
 textarea.addEventListener('input', function(){
-    data = evalate();
+    var data = evalate();
     output.innerHTML = data;
 });
 function loadFile() {
