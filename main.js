@@ -19,7 +19,7 @@ function evalate() {
     var result = [];
     var i = 0;
     while (i < lines.length ) {
-        if (line[i].indexOf("+") != -1 && line[i].indexOf("-") != -1 && line[i].indexOf("*") != -1 && line[i].indexOf("/") != -1) {
+        if (lines[i].indexOf("+") != -1 && lines[i].indexOf("-") != -1 && lines[i].indexOf("*") != -1 && lines[i].indexOf("/") != -1) {
             result.push(eval(line[i]));
         }
         else {result.push(line[i]);}
