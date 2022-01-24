@@ -25,8 +25,7 @@ function evalate() {
         else {result.push(lines[i]);}
         i++;
     }
-    console.log(result);
-    return result;    
+    return result.toString().replace(",", "<br>");  
 }
 textarea.addEventListener('input', function(){
     var data = evalate();
