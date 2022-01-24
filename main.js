@@ -27,8 +27,9 @@ function evalate() {
     }
     return result.toString().replaceAll(",", "<br>");  
 }
+var data = evalate();
+output.innerHTML = data;
 textarea.addEventListener('input', function(){
-    var data = evalate();
     console.log(data);
     output.innerHTML = data;
 });
