@@ -25,7 +25,8 @@ function evalate() {
         else {result.push(lines[i]);}
         i++;
     }
-    return result.toString("\n").replaceAll("\n", "<br>");  
+    console.log(result.toString("\n"));
+    return result.join("\n").replaceAll("\n", "<br>");  
 }
 var data = evalate();
 output.innerHTML = data;
