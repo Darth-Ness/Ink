@@ -14,7 +14,6 @@ function save() {
 let output = document.getElementById('output');
 let textarea = document.querySelector('textarea');
 function evalate() {
-    //var lines = textarea.value.replace("Microsoft", "W3Schools");
     var lines = textarea.value.split("\n");
     var result = [];
     var i = 0;
@@ -34,6 +33,15 @@ textarea.addEventListener('input', function(){
     var data = evalate();
     console.log(data);
     output.innerHTML = data;
+});
+var theme = document.getElementById("theme");
+theme.addEventListener('change', function(){
+    document.querySelectorAll('link').forEach(item => item.remove())
+    var link = document.createElement('link');
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = "https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css";
+    document.head.appendChild(link);
 });
 function loadFile() {
 let input = document.querySelector('input');

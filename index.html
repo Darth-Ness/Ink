@@ -1,13 +1,27 @@
+<head>
 <link rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
 <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
 <title>Ink</title>
 <style>
 textarea{height: 93%;border:none;border-radius:0}
 </style>
+</head>
 <body>
 <div class="banner">
     <button onclick="save()">Export File</button>
     <button onclick="upload()">Import File</button>
+    theme:
+    <select id="theme">
+        <option value="Comet">Comet</option>
+        <option value="Natrual">Natrual</option>
+        <option value="Neon">Neon</option>
+        <option value="Nord">Nord</option>
+        <option value="Rose">Rose</option> 
+        <option value="Seaweed">Seaweed</option> 
+        <option value="Space">Space</option> 
+        <option value="Sunset">Sunset</option> 
+        <option value="Terminal">Terminal</option> 
+    </select>
 </div>
 <div style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:93%">
    <p id="output" style="margin-left: 8px;"></p>
