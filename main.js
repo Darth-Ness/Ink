@@ -36,7 +36,7 @@ textarea.addEventListener('input', function(){
 });
 var theme = document.getElementById("theme");
 theme.addEventListener('change', function(){
-    document.querySelectorAll('link').forEach(item => item.remove())
+    document.styleSheets[0:document.styleSheets.length].disabled = true;
     var link = document.createElement('link');
     link.rel = "stylesheet";
     link.type = "text/css";
