@@ -38,6 +38,9 @@ textarea.addEventListener('input', function(){
     output.innerHTML = data;
 });
 var theme = document.getElementById("theme");
+window.onload = function(){  
+theme.selectedIndex = "3";  
+}  
 theme.addEventListener('change', function(){
     swapStyleSheet("https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css");
 });
