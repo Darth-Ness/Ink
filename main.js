@@ -11,6 +11,9 @@ function save() {
 
     document.body.removeChild(download);
 }
+function swapStyleSheet(sheet){
+	document.getElementById('pagestyle').setAttribute('href', sheet);
+}
 let output = document.getElementById('output');
 let textarea = document.querySelector('textarea');
 function evalate() {
@@ -36,12 +39,7 @@ textarea.addEventListener('input', function(){
 });
 var theme = document.getElementById("theme");
 theme.addEventListener('change', function(){
-    document.styleSheets[0:document.styleSheets.length].disabled = true;
-    var link = document.createElement('link');
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = "https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css";
-    document.head.appendChild(link);
+    swapStyleSheet("https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css");
 });
 function loadFile() {
 let input = document.querySelector('input');
