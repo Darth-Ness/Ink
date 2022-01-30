@@ -3,8 +3,8 @@
 <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
 <title>Ink</title>
 <style>
-textarea{height: 93%;border:none;border-radius:0;border-right: 1px solid #001219;}
-@media only screen and (max-width: 600px){body, button,option {font-size:13}
+textarea{height: 86%;border:none;border-radius:0;border-right: 1px solid #001219;}
+@media only screen and (max-width: 600px){body, button,option {font-size:13}}
 </style>
 </head>
 <body>
@@ -24,8 +24,9 @@ textarea{height: 93%;border:none;border-radius:0;border-right: 1px solid #001219
         <option value="Terminal">Terminal</option> 
     </select>
 </div>
-<div style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:93%">
-   <p id="output" style="margin-left: 8px;"></p>
+<div id="tb"  class="banner">
+<button onclick="changeTab(1)">Tab 1</button><button id="nt" class="right">+</button>
 </div>
-<textarea class="left" id="text"></textarea>
+<iframe id="output" style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:86%;border:none"></iframe>
+<textarea  class="left" id="text"></textarea>
 <script src="main.js"></script>
