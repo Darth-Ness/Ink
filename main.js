@@ -1,21 +1,26 @@
 var nt = document.getElementById("nt");
 var tb = document.getElementById("tb");
-var noTabs = 2;
-var currentTab = 1;
-var TabContent = [""];
-nt.addEventListener('click', function(){
-    var button = document.createElement("button");
-    button.innerHTML = 'Tab' + noTabs;
-    button.setAttribute('onclick', 'changeTab(noTabs - 1)');
-    noTabs++;
-    TabContent.push("");
-    tb.appendChild(button);
-});
+var noTabs = 0;
+var currentTab = 0;
+var TabContent = [];
 function changeTab(tabA) {
     textarea.value =  TabContent[tabA-1];
     currentTab = tabA-1;
     output.srcdoc = TabContent[tabA-1];
+    console.log(TabContent);
+    console.log(tabA-1);
+    console.log(currentTab);
 }
+nt.addEventListener('click', function(){
+    noTabs++;
+    console.log(noTabs);
+    var button = document.createElement("button");
+    var one =  noTabs+1;
+    button.innerHTML = 'Tab' + one ;
+    button.setAttribute('onclick', "changeTab("+one+")");
+    TabContent.push("");
+    tb.appendChild(button);
+});
 function save() {
     var fileName = prompt("Enter a name for your document.");
     var download = document.createElement('a');
