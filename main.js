@@ -1,3 +1,21 @@
+var nt = document.getElementById("nt");
+var tb = document.getElementById("tb");
+var noTabs = 2;
+var currentTab = 1;
+var TabContent = [""];
+nt.addEventListener('click', function(){
+    var button = document.createElement("button");
+    button.innerHTML = 'Tab' + noTabs;
+    button.setAttribute('onclick', 'changeTab(noTabs - 1)');
+    noTabs++;
+    TabContent.push("");
+    tb.appendChild(button);
+});
+function changeTab(tabA) {
+    textarea.value =  TabContent[tabA-1];
+    currentTab = tabA-1;
+    output.srcdoc = TabContent[tabA-1];
+}
 function save() {
     var fileName = prompt("Enter a name for your document.");
     var download = document.createElement('a');
@@ -40,6 +58,7 @@ output.innerHTML = data;
 textarea.addEventListener('input', function(){
     var data = evalate();
     console.log(data);
+    TabContent[currentTab] = data;
     output.srcdoc = data;
 });
 var theme = document.getElementById("theme");
