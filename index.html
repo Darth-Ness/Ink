@@ -1,9 +1,11 @@
 <head>
-<link id="pagestyle"rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
+<link id="pagestyle" rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
+<script src="prism.js"></script>
+<link rel="stylesheet" type="text/css" href="prism.css">
 <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
 <title>Ink</title>
 <style>
-textarea{height: 86%;border:none;border-radius:0;border-right: 1px solid #001219;}
+#container{height: 87%;width:50%;border:0;padding:5px;border-radius:0;position: relative;bottom:8px;}
 @media only screen and (max-width: 600px){body, button,option {font-size:13}}
 </style>
 </head>
@@ -27,6 +29,8 @@ textarea{height: 86%;border:none;border-radius:0;border-right: 1px solid #001219
 <div id="tb"  class="banner">
 <button onclick="changeTab(1)">Tab 1</button><button id="nt" class="right">+</button>
 </div>
-<iframe id="output" style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:86%;border:none"></iframe>
-<textarea  class="left" id="text"></textarea>
+<iframe id="output" style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:88%;border:none"></iframe>
+<pre id="container">
+<code spellcheck="false"  id="text" class="language-html" contenteditable="true">hello there
+</code>
 <script src="main.js"></script>
