@@ -2,23 +2,24 @@ var nt = document.getElementById("nt");
 var tb = document.getElementById("tb");
 var noTabs = 0;
 var currentTab = 0;
-var TabContent = [];
+var lasttab = 0
+var TabContent = ["hello there"];
 function changeTab(tabA) {
-    textarea.value =  TabContent[tabA-1];
+    textarea.innerText =  TabContent[tabA-1];
+    document.getElementById(lasttab).setAttribute('class', 'none');  
     currentTab = tabA-1;
-    output.srcdoc = TabContent[tabA-1];
-    console.log(TabContent);
-    console.log(tabA-1);
-    console.log(currentTab);
+    lasttab = currentTab;
+    document.getElementById(currentTab).setAttribute('class', 'button-highlight');  
+    output.srcdoc = evalate(); 
 }
 nt.addEventListener('click', function(){
     noTabs++;
-    console.log(noTabs);
     var button = document.createElement("button");
     var one =  noTabs+1;
     button.innerHTML = 'Tab' + one ;
     button.setAttribute('onclick', "changeTab("+one+")");
-    TabContent.push("");
+    button.setAttribute('id', noTabs);  
+    TabContent.push("hello there");
     tb.appendChild(button);
 });
 function save() {
@@ -40,7 +41,7 @@ function swapStyleSheet(sheet){
 let output = document.getElementById('output');
 let textarea = document.getElementById('text');
 function evalate() {
-    var lines = textarea.innerHTML.split("\n");
+    var lines = textarea.innerText.split("\n");
     var result = [];
     var i = 0;
     console.log(lines);
@@ -64,14 +65,14 @@ function evalate() {
         return result.join("\n").replaceAll("\n", "");
     }  
 }
-//var data = evalate();
-//output.innerHTML = data;
+var data = evalate();
+output.srcdoc = data;
 textarea.addEventListener('input', function(){
     var data = evalate();
     var restore = saveCaretPosition(this)
     Prism.highlightElement(this);
     console.log(data);
-    TabContent[currentTab] = data;
+    TabContent[currentTab] = textarea.innerText;
     output.srcdoc = data;
     restore();
 });
