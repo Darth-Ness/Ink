@@ -1,11 +1,15 @@
 <head>
 <link id="pagestyle" rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
-<script src="prism.js"></script>
-<link rel="stylesheet" type="text/css" href="prism.css">
+<script type="text/javascript" src="prism.js"></script>
+<script type="text/javascript" src="https://live.prismjs.com/src/prism-live.js"></script>
+<link rel="stylesheet" type="text/css"  href="https://live.prismjs.com/prism-live.css">
+<link rel="stylesheet" type="text/css" href="light.css">
 <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
 <title>Ink</title>
 <style>
-#container{height: 87%;width:49%;border:0;padding:5px;border-radius:0;position: relative;bottom:8px;;}
+#text{height: 100% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:19px; background: transparent !important;}
+div.prism-live{position: absolute !important; top:100px !important; height: 88% !important; width:49% !important; }
+pre{height: 87%;background:transparent !important}
 @media only screen and (max-width: 600px){body, button,option {font-size:13}}
 </style>
 </head>
@@ -18,7 +22,7 @@
         <option value="Comet">Comet</option>
         <option value="Natural">Natural</option>
         <option value="Neon">Neon</option>
-        <option value="Nord" selected>Nord</option>>
+        <option value="Nord" selected>Nord</option>
         <option value="Rose">Rose</option> 
         <option value="Seaweed">Seaweed</option> 
         <option value="Space">Space</option> 
@@ -29,7 +33,6 @@
 <div id="tb"  class="banner">
 <button id="0" class="button-highlight" onclick="changeTab(1)">Tab 1</button><button id="nt" class="right">+</button>
 </div>
-<iframe id="output" style="position: absolute;left:50%;width:50%;background:#fff;color:001219;height:88%;border:none"></iframe>
-<pre id="container">
-<code spellcheck="false"  id="text" class="language-html" contenteditable="true">hello there</code>
+<iframe id="output" style="width:50%;background:#fff;color:#001219;height:88%;border:none; position:absolute;left:50%"></iframe>
+<textarea id="text" spellcheck="false" class="prism-live language-html " contenteditable="true">hello there</textarea>
 <script src="main.js"></script>
