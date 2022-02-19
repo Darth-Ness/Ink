@@ -5,12 +5,11 @@ var currentTab = 0;
 var lasttab = 0
 var TabContent = ["hello there"];
 function changeTab(tabA) {
-    var pre = document.querySelector("pre");
+    var code = document.querySelector("code");
+    code.textContent =  TabContent[tabA-1];
     textarea.value = TabContent[tabA-1];
-    pre.innerText =  TabContent[tabA-1];
     document.getElementById(lasttab).setAttribute('class', 'none');  
     currentTab = tabA-1;
-    console.log(currentTab);
     lasttab = currentTab;
     document.getElementById(currentTab).setAttribute('class', 'button-highlight');  
     output.srcdoc = evalate(); 
@@ -42,7 +41,6 @@ function evalate() {
     var lines = textarea.value.split("\n");
     var result = [];
     var i = 0;
-    console.log(lines);
     while (i < lines.length ) {
         if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1){
             try {result.push(eval(lines[i]));}
@@ -61,11 +59,6 @@ var data = evalate();
 output.srcdoc = data;
 textarea.addEventListener('input', function(){
     var data = evalate();
-    var pre = document.querySelector("pre");
-    pre.innerHTML = textarea.value;
-    Prism.highlightElement(textarea);
-    console.log(currentTab);
-    console.log(TabContent);
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
 });
@@ -78,9 +71,7 @@ input.addEventListener('change', () => {
     let files = input.files;
     if (files.length == 0) return;
     const file = files[0];
-  
     let reader = new FileReader();
-  
     reader.onload = (e) => {
         const file = e.target.result;
         const lines = file.split("<br>");
@@ -89,7 +80,6 @@ input.addEventListener('change', () => {
     };
   
     reader.onerror = (e) => alert(e.target.error.name);
-  
     reader.readAsText(file);
 });
 }
