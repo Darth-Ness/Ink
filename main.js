@@ -62,6 +62,12 @@ textarea.addEventListener('input', function(){
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
 });
+var search = document.getElementById("search");
+search.addEventListener('keypress',function(e){ 
+    if (e.keyCode == 13) {
+      window.open("https://www.duckduckgo.com/" + search.value);
+    }
+});
 var theme = document.getElementById("theme");
 window.onload = function(){theme.selectedIndex = "3";}  
 theme.addEventListener('change', function(){swapStyleSheet("https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css");});
