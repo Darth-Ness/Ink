@@ -1,4 +1,31 @@
 # Ink
 ![img](https://img.shields.io/github/license/darth-ness/ink) \
-The online, static word processor. That also doubles as an HTML tester. You can test HTML live after every line!
-![image](https://user-images.githubusercontent.com/92550746/151670190-70913e16-71a1-4741-babb-f5dcb459ec14.png)
+
+# What is it?
+ink is a online notepad app, with a lot more features.
+
+# Featrues
+Edit Projects
+<br>
+instantly view result
+<br>
+Calculator
+<br>
+Tabs
+<br>
+Support for HTML, CSS, and JS
+<br>
+Syntax Highlighting for the above langauges.
+<br>
+Support for saving and loading your projects
+<br>
+Access the editor from anywhere
+
+# Example usage
+What to get a quick awnser for a math problem? Just type it in the editor, you'll see the awnser on the right.
+Are you a web developer? Type your code on the left, and the web page will appear on the right.
+Note Taker? Ink can do that too.
+
+# Suggestion? Bug?
+If you found a bug or have a suggestion, you can make a issue on the issue tab.
+However, if you want to have it done faster, you can make a PR.
