@@ -3,7 +3,7 @@ var tb = document.getElementById("tb");
 var noTabs = 0;
 var currentTab = 0;
 var lasttab = 0
-var TabContent = ["hello there"];
+var TabContent = ["<h1>Hello World!</h1>"];
 function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent =  TabContent[tabA-1];
