@@ -3,7 +3,25 @@ var tb = document.getElementById("tb");
 var noTabs = 0;
 var currentTab = 0;
 var lasttab = 0
-var TabContent = ["hello there"];
+function appendTabs() {
+    var i = 2;
+    while (i < localStorage.getItem("noTabs")) {
+        var button = document.createElement("button");
+        button.innerHTML = 'Tab' + i;
+        button.setAttribute('onclick', "changeTab("+i+")");
+        button.setAttribute('id', lasttab+1);
+        tb.appendChild(button);
+        i+=1
+        lasttab+=1;
+    }
+}
+if (localStorage.getItem("tabs") != null){ 
+    var TabContent = localStorage.getItem("tabs").split(",");
+    appendTabs();
+}
+else {
+    var TabContent = ["hello there"]
+}
 function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent =  TabContent[tabA-1];
@@ -13,6 +31,8 @@ function changeTab(tabA) {
     lasttab = currentTab;
     document.getElementById(currentTab).setAttribute('class', 'button-highlight');  
     output.srcdoc = evalate(); 
+    localStorage.setItem('tabs', TabContent);
+    localStorage.setItem('noTabs', TabContent.length);
 }
 nt.addEventListener('click', function(){
     noTabs++;
@@ -21,6 +41,7 @@ nt.addEventListener('click', function(){
     button.innerHTML = 'Tab' + one ;
     button.setAttribute('onclick', "changeTab("+one+")");
     button.setAttribute('id', noTabs);  
+    console.log(TabContent);
     TabContent.push("hello there");
     tb.appendChild(button);
 });
@@ -37,17 +58,46 @@ function save() {
 function swapStyleSheet(sheet){document.getElementById('pagestyle').setAttribute('href', sheet);}
 let output = document.getElementById('output');
 let textarea = document.getElementById('text');
+var ISVars = [];
+function handleInkScript(code, result) {
+    parsedCode = code.split(" ");
+    console.log(parsedCode);
+    if (parsedCode[0] == "%var") {
+        ISVars.push("%" + parsedCode[1]);        
+        var i= 3;
+        while (i < parsedCode.length) {
+            ISVars.push(parsedCode[i]);
+            console.log(parsedCode[i])
+            i++;
+        }
+    }
+        else {
+            console.log(ISVars)
+            if (ISVars.includes(parsedCode[0])) {
+                result.push(ISVars[ISVars.indexOf(parsedCode[0])+1]);
+                console.log(result)
+            }
+        }
+    
+}
 function evalate() {
     var lines = textarea.value.split("\n");
+    ISVars.length = 0;
     var result = [];
     var i = 0;
     while (i < lines.length ) {
-        if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1){
-            try {result.push(eval(lines[i]));}
-            catch(err) {result.push(lines[i]);}
+        if (lines[i][0] != '%') {
+            if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1){
+                try {result.push(eval(lines[i]));}
+                catch(err) {result.push(lines[i]);}
+            }
+            else {result.push(lines[i]);}
+            
         }
-        else {result.push(lines[i]);}
-        i++;
+        else {
+            handleInkScript(lines[i], result);
+        }
+    i++;
     }
     var resultS = result.toString();;
     if (resultS.indexOf("<html>") == -1 && resultS.indexOf("<style>")  == -1 && resultS.indexOf("<script>") == -1) {
@@ -61,12 +111,6 @@ textarea.addEventListener('input', function(){
     var data = evalate();
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
-});
-var search = document.getElementById("search");
-search.addEventListener('keypress',function(e){ 
-    if (e.keyCode == 13) {
-      window.open("https://www.duckduckgo.com/" + search.value);
-    }
 });
 var theme = document.getElementById("theme");
 window.onload = function(){theme.selectedIndex = "3";}  
