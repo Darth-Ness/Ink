@@ -1,6 +1,8 @@
 //Vars
 var nt = document.getElementById("nt");
-var noTabs,currentTab,lasttab = 0;
+var noTabs = 0;
+var currentTab = 0;
+var lasttab = 0;
 let output = document.getElementById('output');
 let textarea = document.getElementById('text');
 var ISVars = [];
@@ -21,6 +23,7 @@ function appendTabs() {
     lasttab = localStorage.getItem("currenttab");
     document.getElementById("0").setAttribute('class', 'none')
     document.getElementById(localStorage.getItem('currenttab')).setAttribute('class', 'button-highlight')
+    noTabs = localStorage.getItem("noTabs")-2;
 }
 if (localStorage.getItem("tabs") != null){ 
     var TabContent = localStorage.getItem("tabs").split(",");
@@ -43,8 +46,9 @@ function changeTab(tabA) {
 nt.addEventListener('click', function(){
     noTabs++;
     var button = document.createElement("button");
+    var one = noTabs +1;
     button.innerHTML = 'Tab ' + one ;
-    button.setAttribute('onclick', "changeTab("+noTabs+1+")");
+    button.setAttribute('onclick', "changeTab("+one+")");
     button.setAttribute('id', noTabs);  
     document.getElementById("tb").appendChild(button);
 });
