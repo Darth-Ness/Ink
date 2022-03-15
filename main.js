@@ -1,27 +1,32 @@
+//Vars
 var nt = document.getElementById("nt");
-var tb = document.getElementById("tb");
-var noTabs = 0;
-var currentTab = 0;
-var lasttab = 0
+var noTabs,currentTab,lasttab = 0;
+let output = document.getElementById('output');
+let textarea = document.getElementById('text');
+var ISVars = [];
+var data = evalate();
+//Tabs
+
 function appendTabs() {
     var i = 2;
     while (i < localStorage.getItem("noTabs")) {
         var button = document.createElement("button");
-        button.innerHTML = 'Tab' + i;
+        button.innerHTML = 'Tab ' + i;
         button.setAttribute('onclick', "changeTab("+i+")");
         button.setAttribute('id', lasttab+1);
-        tb.appendChild(button);
+        document.getElementById("tb").appendChild(button);
         i+=1
         lasttab+=1;
     }
+    lasttab = localStorage.getItem("currenttab");
+    document.getElementById("0").setAttribute('class', 'none')
+    document.getElementById(localStorage.getItem('currenttab')).setAttribute('class', 'button-highlight')
 }
 if (localStorage.getItem("tabs") != null){ 
     var TabContent = localStorage.getItem("tabs").split(",");
     appendTabs();
 }
-else {
-    var TabContent = ["hello there"]
-}
+else {var TabContent = []}
 function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent =  TabContent[tabA-1];
@@ -33,52 +38,33 @@ function changeTab(tabA) {
     output.srcdoc = evalate(); 
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
+    localStorage.setItem('currenttab', currentTab);
 }
 nt.addEventListener('click', function(){
     noTabs++;
     var button = document.createElement("button");
-    var one =  noTabs+1;
-    button.innerHTML = 'Tab' + one ;
-    button.setAttribute('onclick', "changeTab("+one+")");
+    button.innerHTML = 'Tab ' + one ;
+    button.setAttribute('onclick', "changeTab("+noTabs+1+")");
     button.setAttribute('id', noTabs);  
-    console.log(TabContent);
-    TabContent.push("hello there");
-    tb.appendChild(button);
+    document.getElementById("tb").appendChild(button);
 });
-function save() {
-    var fileName = prompt("Enter a name for your document.");
-    var download = document.createElement('a');
-    download.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(document.getElementById("text").value.replaceAll("\n", "<br>")));
-    download.setAttribute('download', fileName + ".html");
-    download.style.display = 'none';
-    document.body.appendChild(download);
-    download.click();
-    document.body.removeChild(download);
-}
-function swapStyleSheet(sheet){document.getElementById('pagestyle').setAttribute('href', sheet);}
-let output = document.getElementById('output');
-let textarea = document.getElementById('text');
-var ISVars = [];
+//Ink Script and Results
+
 function handleInkScript(code, result) {
     parsedCode = code.split(" ");
-    console.log(parsedCode);
     if (parsedCode[0] == "%var") {
         ISVars.push("%" + parsedCode[1]);        
         var i= 3;
         while (i < parsedCode.length) {
             ISVars.push(parsedCode[i]);
-            console.log(parsedCode[i])
             i++;
         }
     }
         else {
-            console.log(ISVars)
             if (ISVars.includes(parsedCode[0])) {
                 result.push(ISVars[ISVars.indexOf(parsedCode[0])+1]);
-                console.log(result)
             }
-        }
-    
+        }  
 }
 function evalate() {
     var lines = textarea.value.split("\n");
@@ -105,40 +91,9 @@ function evalate() {
     }
     else {return result.join("\n").replaceAll("\n", "");}  
 }
-var data = evalate();
 output.srcdoc = data;
 textarea.addEventListener('input', function(){
-    var data = evalate();
+    data = evalate();
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
 });
-var theme = document.getElementById("theme");
-window.onload = function(){theme.selectedIndex = "3";}  
-theme.addEventListener('change', function(){swapStyleSheet("https://aquacss.darth-ness.repl.co/themes/" + theme.value + ".css");});
-function loadFile() {
-let input = document.querySelector('input');
-input.addEventListener('change', () => {
-    let files = input.files;
-    if (files.length == 0) return;
-    const file = files[0];
-    let reader = new FileReader();
-    reader.onload = (e) => {
-        const file = e.target.result;
-        const lines = file.split("<br>");
-        textarea.value = lines.join('\n');
-  
-    };
-  
-    reader.onerror = (e) => alert(e.target.error.name);
-    reader.readAsText(file);
-});
-}
-function upload() {
-	var upload = document.createElement('input');
-	upload.setAttribute('type', 'file');
-	upload.style.display = 'none';
-	document.body.appendChild(upload);
-	upload.click();
-	loadFile();
-	document.body.removeChild(upload);
-}

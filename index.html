@@ -3,35 +3,18 @@
 <script type="text/javascript" src="prism.js"></script>
 <script type="text/javascript" src="https://live.prismjs.com/src/prism-live.js"></script>
 <link rel="stylesheet" type="text/css"  href="https://live.prismjs.com/prism-live.css">
-<link rel="stylesheet" type="text/css" href="light.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-nord.min.css">
 <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
 <title>Ink</title>
 <style>
-#text{height: 100% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:19px; background: transparent !important;}
-div.prism-live{position: absolute !important; top:100px !important; height: 88% !important; width:49% !important; }
+#text{height: 100% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:2.5%; background: transparent !important;}
+div.prism-live{position: absolute !important; top:6% !important; height: 88% !important; width:49% !important; }
 pre{height: 87%;background:transparent !important}
-@media only screen and (max-width: 600px){body, button,option {font-size:13}}
 </style>
 </head>
-<body>
-<div class="banner">
-    <button onclick="save()">Export</button>
-    <button onclick="upload()">Import</button>
-    <select name = "dropdown" id="theme">
-        <option value="Comet">Comet</option>
-        <option value="Natural">Natural</option>
-        <option value="Neon">Neon</option>
-        <option value="Nord" selected>Nord</option>
-        <option value="Rose">Rose</option> 
-        <option value="Seaweed">Seaweed</option> 
-        <option value="Space">Space</option> 
-        <option value="Sunset">Sunset</option> 
-        <option value="Terminal">Terminal</option> 
-    </select>
-</div>
 <div id="tb"  class="banner">
 <button id="0" class="button-highlight" onclick="changeTab(1)">Tab 1</button><button id="nt" class="right">+</button>
 </div>
-<iframe id="output" style="width:50%;background:#fff;color:#001219;height:88%;border:none; position:absolute;left:50%"></iframe>
+<iframe id="output" style="width:50%;background:#fff;color:#001219;height:93%;border:none; position:absolute;left:50%"></iframe>
 <textarea id="text" spellcheck="false" class="prism-live language-html " contenteditable="true">hello there</textarea>
 <script src="main.js"></script>
