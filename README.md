@@ -22,7 +22,7 @@ Support for saving and loading your projects
 Access the editor from anywhere
 
 # Example usage
-What to get a quick awnser for a math problem? Just type it in the editor, you'll see the awnser on the right.
+What to get a quick answer for a math problem? Just type it in the editor, you'll see the answer on the right.
 Are you a web developer? Type your code on the left, and the web page will appear on the right.
 Note Taker? Ink can do that too.
 
