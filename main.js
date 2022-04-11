@@ -6,7 +6,8 @@ var lasttab = 0;
 let output = document.getElementById('output');
 let textarea = document.getElementById('text');
 var ISVars = [];
-var data = evalate();
+var data = evalate()
+var tokens = ["%var"]
 //Tabs
 
 function appendTabs() {
@@ -55,7 +56,24 @@ nt.addEventListener('click', function(){
 //Ink Script and Results
 
 function handleInkScript(code, result) {
-    parsedCode = code.split(" ");
+    let cc = "";
+    let inString = false;
+    let full = "";
+    for(char in code) {
+        cc = char;
+        if(cc="\"") {
+          if(inString == true) {
+            inString = true;  
+          } else {
+            inString = false;
+          }
+    if (inString == false) {
+        full = full + cc;
+    }
+    if (full in tokens)
+        parsedCode.push(full)
+    }
+    }
     if (parsedCode[0] == "%var") {
         ISVars.push("%" + parsedCode[1]);        
         var i= 3;
