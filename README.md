@@ -2,12 +2,12 @@
 ![img](https://img.shields.io/github/license/darth-ness/ink) \
 
 # What is it?
-ink is a online notepad app, with a lot more features.
+Ink is a online notepad app, with a lot more features.
 
-# Featrues
+# Features
 Edit Projects
 <br>
-instantly view result
+Instantly view result
 <br>
 Calculator
 <br>
@@ -15,14 +15,14 @@ Tabs
 <br>
 Support for HTML, CSS, and JS
 <br>
-Syntax Highlighting for the above langauges.
+Syntax Highlighting for the above langauges
 <br>
 Support for saving and loading your projects
 <br>
 Access the editor from anywhere
 
 # Example usage
-What to get a quick answer for a math problem? Just type it in the editor, you'll see the answer on the right.
+Want to get a quick answer for a math problem? Just type it in the editor, and you'll see the answer on the right.
 Are you a web developer? Type your code on the left, and the web page will appear on the right.
 Note Taker? Ink can do that too.
 
