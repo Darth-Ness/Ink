@@ -1,4 +1,5 @@
 //Vars
+var closedTab = false;
 var nt = document.getElementById("nt");
 var noTabs = 0;
 var currentTab = 0;
@@ -35,7 +36,7 @@ function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
-    document.getElementById(lasttab).setAttribute('class', 'none');
+    if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
     lasttab = currentTab;
     document.getElementById(currentTab).setAttribute('class', 'button-highlight');
@@ -43,6 +44,7 @@ function changeTab(tabA) {
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
     localStorage.setItem('currenttab', currentTab);
+    closedTab = false;
 }
 nt.addEventListener('click', function() {
     noTabs++;
@@ -53,6 +55,11 @@ nt.addEventListener('click', function() {
     button.setAttribute('id', noTabs);
     document.getElementById("tb").appendChild(button);
 });
+document.getElementById("closeTab").addEventListener('click', function() { 
+    document.getElementById(currentTab).remove(); 
+    closedTab = true;
+})
+
 //Ink Script and Results
 
 function handleInkScript(code, result) {

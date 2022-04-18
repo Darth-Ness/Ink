@@ -1,20 +1,31 @@
-<head>
-<link id="pagestyle" rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
-<script type="text/javascript" src="prism.js"></script>
-<script type="text/javascript" src="https://live.prismjs.com/src/prism-live.js"></script>
-<link rel="stylesheet" type="text/css"  href="https://live.prismjs.com/prism-live.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-nord.min.css">
-<meta name ="viewport" content="width=device-width, initial-scale=1 "/>
-<title>Ink</title>
-<style>
-#text{height: 100% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:2.5%; background: transparent !important;}
-div.prism-live{position: absolute !important; top:6% !important; height: 88% !important; width:49% !important; }
-pre{height: 87%;background:transparent !important}
-</style>
-</head>
-<div id="tb"  class="banner center">
-<button id="0" class="button-highlight" onclick="changeTab(1)">Tab 1</button><button id="nt" class="right">+</button>
+<div class = "meta">
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="https://aquacss.darth-ness.repl.co/themes/Nord.css">
+    <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
+    <title>Ink</title>
+    <style>
+        #text{height: 100% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:2.4%; background: transparent !important;}
+        div.prism-live{position: absolute !important; top:6% !important; height: 88% !important; width:49% !important; }
+        pre{height: 87%;background:transparent !important}
+    </style>
 </div>
-<iframe id="output" style="width:50%;background:#fff;color:#001219;height:93%;border:none; position:absolute;left:50%"></iframe>
-<textarea id="text" spellcheck="false" class="prism-live language-html " contenteditable="true">hello there</textarea>
-<script src="main.js"></script>
+
+<div class="TabBar">
+    <div id="tb"  class="banner center">
+        <button id="0" class="button-highlight" onclick="changeTab(1)">Tab 1</button>
+        <button id="nt" class="right">+</button>
+        <button id="closeTab" class="right">x</button>
+    </div>
+</div>
+
+<div class="Editor">
+    <iframe id="output" style="width:50%;background:#fff;color:#001219;height:93%;border:none; position:absolute;left:50%"></iframe>
+    <textarea id="text" spellcheck="false" class="prism-live language-html " contenteditable="true">hello there</textarea>
+<div>
+
+<div class="ScriptAndStyle">
+    <script src="main.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript" src="https://live.prismjs.com/src/prism-live.js"></script>
+    <link rel="stylesheet" type="text/css"  href="https://live.prismjs.com/prism-live.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-nord.min.css">
+</div>
