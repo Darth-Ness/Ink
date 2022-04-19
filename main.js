@@ -12,20 +12,18 @@ var tokens = ["%var"]
     //Tabs
 
 function appendTabs() {
-    var i = 2;
+    var i = 1;
     while (i < localStorage.getItem("noTabs")) {
         var button = document.createElement("button");
-        button.innerHTML = 'Tab ' + i;
-        button.setAttribute('onclick', "changeTab(" + i + ")");
+        var one = i + 1;
+        button.innerHTML = 'Tab ' + one;
+        button.setAttribute('onclick', "changeTab(" + one + ")");
         button.setAttribute('id', lasttab + 1);
         document.getElementById("tb").appendChild(button);
         i += 1
         lasttab += 1;
     }
-    lasttab = localStorage.getItem("currenttab");
-    document.getElementById("0").setAttribute('class', 'none')
-    document.getElementById(localStorage.getItem('currenttab')).setAttribute('class', 'button-highlight')
-    noTabs = localStorage.getItem("noTabs") - 2;
+    noTabs = localStorage.getItem("noTabs") - 1;
 }
 if (localStorage.getItem("tabs") != null) {
     var TabContent = localStorage.getItem("tabs").split(",");
@@ -36,6 +34,7 @@ function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
+    console.log(lasttab)
     if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
     lasttab = currentTab;
