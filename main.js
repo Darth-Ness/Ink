@@ -56,6 +56,9 @@ nt.addEventListener('click', function() {
     document.getElementById("tb").appendChild(button);
 });
 document.getElementById("closeTab").addEventListener('click', function() { 
+    if (noTabs < 1) {
+        return;
+    }
     document.getElementById(currentTab).remove(); 
     closedTab = true;
 })
