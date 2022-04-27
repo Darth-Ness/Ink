@@ -3,7 +3,7 @@
     <meta name ="viewport" content="width=device-width, initial-scale=1 "/>
     <title>Ink</title>
     <style>
-        #text{height: 88% !important;width:100%;border:none;padding:5px;border-radius:0;position: absolute;top:19; background: transparent !important;}
+        #text{height: 88% !important;border:none;padding:5px;position: absolute;top:19; background: transparent !important;}
         div.prism-live{position: absolute !important; top:50 !important; height: 88% !important; width:49% !important; }
     </style>
 </div>
@@ -18,13 +18,14 @@
 
 <div class="Editor">
     <iframe id="output" style="width:50%;background:#fff;color:#001219;height:93%;border:none; position:absolute;left:50%"></iframe>
-    <textarea id="text" spellcheck="false" class="prism-live language-html " contenteditable="true">hello there</textarea>
+    <textarea id="text" spellcheck="false" class="prism-live language-html line-numbers"  data-line="1" data-start="1">hello there</textarea>
 <div>
 
 <div class="ScriptAndStyle">
-    <script src="main.js"></script>
     <script type="text/javascript" src="prism.js"></script>
     <script type="text/javascript" src="https://live.prismjs.com/src/prism-live.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://prismjs.com/plugins/line-numbers/prism-line-numbers.css">
     <link rel="stylesheet" type="text/css"  href="https://live.prismjs.com/prism-live.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-nord.min.css">
 </div>

@@ -34,7 +34,6 @@ function changeTab(tabA) {
     var code = document.querySelector("code");
     code.textContent = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
-    console.log(lasttab)
     if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
     lasttab = currentTab;
