@@ -32,17 +32,16 @@ if (localStorage.getItem("tabs") != null) {
 
 function changeTab(tabA) {
     var code = document.querySelector("code");
-    code.textContent = TabContent[tabA - 1];
+    code.innerHTML = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
     if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
     lasttab = currentTab;
-    document.getElementById(currentTab).setAttribute('class', 'button-highlight');
+    document.getElementById(currentTab).setAttribute('class', 'bgBlue4');
     output.srcdoc = evalate();
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
     localStorage.setItem('currenttab', currentTab);
-    closedTab = false;
 }
 nt.addEventListener('click', function() {
     noTabs++;
@@ -123,7 +122,64 @@ textarea.addEventListener('input', function() {
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
 });
-
+var checkbox = document.getElementById("checkbox");
+checkbox.addEventListener('click', function() {
+    if (checkbox.checked == true) {
+        output.style = "position: absolute;left:80;height:94%;width:93%;background:#fff !important;border:none;display: default";
+    }    
+    if (checkbox.checked == false) {
+        output.style = "display: none";
+    }
+})
 // if user agent contains electron, set use_electron to true
 var use_electron = navigator.userAgent.indexOf('Electron') > -1;
 console.log(use_electron);
+function save() {
+    var fileName = prompt("Enter a name for your document.");
+    var download = document.createElement('a');
+    download.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(document.getElementById("text").value.replaceAll("\n", "<br>")));
+    download.setAttribute('download', fileName + ".html");
+
+    download.style.display = 'none';
+    document.body.appendChild(download);
+
+    download.click();
+
+    document.body.removeChild(download);
+}
+
+function loadFile() {
+let input = document.getElementById('upload');
+input.addEventListener('change', () => {
+    let files = input.files;
+    if (files.length == 0) return;
+    const file = files[0];
+
+    let reader = new FileReader();
+
+    reader.onload = (e) => {
+        const file = e.target.result;
+        const lines = file.split("<br>");
+        textarea.value = lines.join('\n');
+        var code = document.querySelector("code");
+        code.innerHTML = lines.join('\n')
+        output.srcdoc = line.join('\n')
+
+
+    };
+
+    reader.onerror = (e) => alert(e.target.error.name);
+
+    reader.readAsText(file);
+});
+}
+function upload() {
+	var upload = document.createElement('input');
+	upload.setAttribute('type', 'file');
+	upload.style.display = 'none';
+    upload.id = "upload";
+	document.body.appendChild(upload);
+	upload.click();
+	loadFile();
+	document.body.removeChild(upload);
+}
