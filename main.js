@@ -37,7 +37,7 @@ function changeTab(tabA) {
     if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
     lasttab = currentTab;
-    document.getElementById(currentTab).setAttribute('class', 'bgBlue4');
+    document.getElementById(currentTab).setAttribute('class', 'bgRed');
     output.srcdoc = evalate();
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
