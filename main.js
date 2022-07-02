@@ -119,6 +119,8 @@ function evalate() {
 output.srcdoc = data;
 textarea.addEventListener('input', function() {
     data = evalate();
+    var spaceCounter = data.split(' ').length;
+    document.getElementById('wordCounter').innerHTML = spaceCounter;
     TabContent[currentTab] = textarea.value;
     output.srcdoc = data;
 });
