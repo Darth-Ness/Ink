@@ -46,7 +46,7 @@ function changeTab(tabA) {
 nt.addEventListener('click', function() {
     noTabs++;
     var button = document.createElement("button");
-    var one = noTabs + 1;
+    var one = noTabs + 2;
     button.innerHTML = 'Tab ' + one;
     button.setAttribute('onclick', "changeTab(" + one + ")");
     button.setAttribute('id', noTabs);
