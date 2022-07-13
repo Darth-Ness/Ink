@@ -50,7 +50,9 @@ nt.addEventListener('click', function() {
     button.innerHTML = 'Tab ' + one;
     button.setAttribute('onclick', "changeTab(" + one + ")");
     button.setAttribute('id', noTabs);
+    button.setAttribute('style', 'margin-right: 0')
     document.getElementById("tb").appendChild(button);
+    document.getElementById('tb').appendChild(document.createElement("br"));
 });
 document.getElementById("closeTab").addEventListener('click', function() { 
     if (noTabs < 1) {
