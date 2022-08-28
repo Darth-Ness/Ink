@@ -3,7 +3,7 @@ var closedTab = false;
 var nt = document.getElementById("nt");
 var noTabs = 0;
 var currentTab = 0;
-let output = document.getElementById('output');
+let outputEditor = document.getElementById('output');
 let textarea = document.getElementById('text');
 var ISVars = [];
 var data = evalate()
@@ -36,7 +36,7 @@ function changeTab(tabA) {
     code.innerHTML = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
     currentTab = tabA - 1;
-    output.srcdoc = evalate();
+    outputEditor.srcdoc = evalate();
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
     localStorage.setItem('currenttab', currentTab);
@@ -115,24 +115,24 @@ function evalate() {
         return result.join("\n").replaceAll("\n", "<br>");
     } else { return result.join("\n").replaceAll("\n", ""); }
 }
-output.srcdoc = data;
+outputEditor.srcdoc = data;
 textarea.addEventListener('input', function() {
     data = evalate();
     var spaceCounter = data.split(' ').length;
     document.getElementById('wordCounter').innerHTML = spaceCounter;
     TabContent[currentTab] = textarea.value;
-    output.srcdoc = data;
+    outputEditor.srcdoc = data;
 });
 var checkbox = document.getElementById("checkbox");
 checkbox.addEventListener('click', function() {
     if (checkbox.checked == true) {
-        output.style = "position: absolute;left:80;height:94%;width:93%;background:#fff !important;border:none;display: default";
+        outputEditor.style = "position: absolute;left:80;height:94%;width:93%;background:#fff !important;border:none;display: default";
         textarea.style = "display: none";
         var code = document.querySelector("code");
         code.style = "display: none";
     }    
     if (checkbox.checked == false) {
-        output.style = "display: none";
+        outputEditor.style = "display: none";
         textarea.style = "display: none";
         var code = document.querySelector("code");
         code.style = "display: default";
@@ -171,7 +171,7 @@ input.addEventListener('change', () => {
         textarea.value = lines.join('\n');
         var code = document.querySelector("code");
         code.innerHTML = lines.join('\n')
-        output.srcdoc = lines.join('\n')
+        outputEditor.srcdoc = lines.join('\n')
     };
 
     reader.onerror = (e) => alert(e.target.error.name);
