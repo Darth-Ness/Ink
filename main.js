@@ -3,27 +3,28 @@ var closedTab = false;
 var nt = document.getElementById("nt");
 var noTabs = 0;
 var currentTab = 0;
-var lasttab = 0;
 let output = document.getElementById('output');
 let textarea = document.getElementById('text');
 var ISVars = [];
 var data = evalate()
 var tokens = ["%var"]
-    //Tabs
+
+//Tabs
 
 function appendTabs() {
-    var i = 1;
+    var i = 0;
+    currentTab = localStorage.getItem("currenttab")
     while (i < localStorage.getItem("noTabs")) {
         var button = document.createElement("button");
         var one = i + 1;
         button.innerHTML = 'Tab ' + one;
         button.setAttribute('onclick', "changeTab(" + one + ")");
-        button.setAttribute('id', lasttab + 1);
+        button.setAttribute('class', "bgRed");
         document.getElementById("tb").appendChild(button);
+        document.getElementById('tb').append(document.createElement("br"), document.createElement("br"));
         i += 1
-        lasttab += 1;
     }
-    noTabs = localStorage.getItem("noTabs") - 1;
+    noTabs = localStorage.getItem("noTabs");
 }
 if (localStorage.getItem("tabs") != null) {
     var TabContent = localStorage.getItem("tabs").split(",");
@@ -34,10 +35,7 @@ function changeTab(tabA) {
     var code = document.querySelector("code");
     code.innerHTML = TabContent[tabA - 1];
     textarea.value = TabContent[tabA - 1];
-    if (closedTab == false) {document.getElementById(lasttab).setAttribute('class', 'none');}
     currentTab = tabA - 1;
-    lasttab = currentTab;
-    document.getElementById(currentTab).setAttribute('class', 'bgRed');
     output.srcdoc = evalate();
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
@@ -46,18 +44,15 @@ function changeTab(tabA) {
 nt.addEventListener('click', function() {
     noTabs++;
     var button = document.createElement("button");
-    var one = noTabs + 2;
-    button.innerHTML = 'Tab ' + one;
-    button.setAttribute('onclick', "changeTab(" + one + ")");
-    button.setAttribute('id', noTabs);
-    button.setAttribute('style', 'margin-right: 0')
+    button.innerHTML = 'Tab ' + noTabs;
+    button.setAttribute('onclick', "changeTab(" + noTabs + ")");
+    button.setAttribute('id', noTabs-1);
+    button.setAttribute('class', 'bgRed')
     document.getElementById("tb").appendChild(button);
-    document.getElementById('tb').appendChild(document.createElement("br"));
+    document.getElementById('tb').append(document.createElement("br"), document.createElement("br"));
 });
 document.getElementById("closeTab").addEventListener('click', function() { 
-    if (noTabs < 1) {
-        return;
-    }
+    if (noTabs < 1) { return; }
     document.getElementById(currentTab).remove(); 
     closedTab = true;
 })
@@ -98,6 +93,8 @@ function handleInkScript(code, result) {
 }
 
 function evalate() {
+    console.log(noTabs)
+    console.log(currentTab)
     var lines = textarea.value.split("\n");
     ISVars.length = 0;
     var result = [];
@@ -130,14 +127,21 @@ var checkbox = document.getElementById("checkbox");
 checkbox.addEventListener('click', function() {
     if (checkbox.checked == true) {
         output.style = "position: absolute;left:80;height:94%;width:93%;background:#fff !important;border:none;display: default";
+        textarea.style = "display: none";
+        var code = document.querySelector("code");
+        code.style = "display: none";
     }    
     if (checkbox.checked == false) {
         output.style = "display: none";
+        textarea.style = "display: none";
+        var code = document.querySelector("code");
+        code.style = "display: default";
     }
 })
 // if user agent contains electron, set use_electron to true
 var use_electron = navigator.userAgent.indexOf('Electron') > -1;
 console.log(use_electron);
+//File Management
 function save() {
     var fileName = prompt("Enter a name for your document.");
     var download = document.createElement('a');
@@ -167,9 +171,7 @@ input.addEventListener('change', () => {
         textarea.value = lines.join('\n');
         var code = document.querySelector("code");
         code.innerHTML = lines.join('\n')
-        output.srcdoc = line.join('\n')
-
-
+        output.srcdoc = lines.join('\n')
     };
 
     reader.onerror = (e) => alert(e.target.error.name);
