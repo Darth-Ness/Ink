@@ -5,10 +5,7 @@ var noTabs = 0;
 var currentTab = 0;
 let outputEditor = document.getElementById('output');
 let textarea = document.getElementById('text');
-var ISVars = [];
 var data = evalate()
-var tokens = ["%var"]
-
 //Tabs
 
 function appendTabs() {
@@ -37,9 +34,6 @@ function changeTab(tabA) {
     textarea.value = TabContent[tabA - 1];
     currentTab = tabA - 1;
     outputEditor.srcdoc = evalate();
-    localStorage.setItem('tabs', TabContent);
-    localStorage.setItem('noTabs', TabContent.length);
-    localStorage.setItem('currenttab', currentTab);
 }
 nt.addEventListener('click', function() {
     noTabs++;
@@ -57,57 +51,19 @@ document.getElementById("closeTab").addEventListener('click', function() {
     closedTab = true;
 })
 
-//Ink Script and Results
+//Results
 
-function handleInkScript(code, result) {
-    let cc = "";
-    let inString = false;
-    let full = "";
-    for (char in code) {
-        cc = char;
-        if (cc = "\"") {
-            if (inString == true) {
-                inString = true;
-            } else {
-                inString = false;
-            }
-            if (inString == false) {
-                full = full + cc;
-            }
-            if (full in tokens)
-                parsedCode.push(full)
-        }
-    }
-    if (parsedCode[0] == "%var") {
-        ISVars.push("%" + parsedCode[1]);
-        var i = 3;
-        while (i < parsedCode.length) {
-            ISVars.push(parsedCode[i]);
-            i++;
-        }
-    } else {
-        if (ISVars.includes(parsedCode[0])) {
-            result.push(ISVars[ISVars.indexOf(parsedCode[0]) + 1]);
-        }
-    }
-}
 
 function evalate() {
     console.log(noTabs)
     console.log(currentTab)
     var lines = textarea.value.split("\n");
-    ISVars.length = 0;
     var result = [];
     var i = 0;
     while (i < lines.length) {
-        if (lines[i][0] != '%') {
-            if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1) {
-                try { result.push(eval(lines[i])); } catch (err) { result.push(lines[i]); }
-            } else { result.push(lines[i]); }
-
-        } else {
-            handleInkScript(lines[i], result);
-        }
+        if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1) {
+            try { result.push(eval(lines[i])); } catch (err) { result.push(lines[i]); }
+        } else { result.push(lines[i]); }
         i++;
     }
     var resultS = result.toString();;
@@ -141,7 +97,10 @@ checkbox.addEventListener('click', function() {
 // if user agent contains electron, set use_electron to true
 var use_electron = navigator.userAgent.indexOf('Electron') > -1;
 console.log(use_electron);
+
 //File Management
+// The difference between the save function and the saveProject function is
+// The save function saves the project to your computer, while the saveProject saves it to local storage
 function save() {
     var fileName = prompt("Enter a name for your document.");
     var download = document.createElement('a');
@@ -188,4 +147,10 @@ function upload() {
 	upload.click();
 	loadFile();
 	document.body.removeChild(upload);
+}
+function saveProject() {
+    localStorage.setItem('tabs', TabContent);
+    localStorage.setItem('noTabs', TabContent.length);
+    localStorage.setItem('currenttab', currentTab);
+
 }
