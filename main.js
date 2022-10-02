@@ -154,3 +154,6 @@ function saveProject() {
     localStorage.setItem('currenttab', currentTab);
 
 }
+window.addEventListener("blur", () => {
+    saveProject();
+});
