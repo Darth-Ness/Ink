@@ -24,7 +24,7 @@ function appendTabs() {
     noTabs = localStorage.getItem("noTabs");
 }
 if (localStorage.getItem("tabs") != null) {
-    var TabContent = localStorage.getItem("tabs").split(",");
+    var TabContent = localStorage.getItem("tabs").replaceAll("%commma%", ",").split("%end%");
     appendTabs();
 } else { var TabContent = [] }
 
@@ -66,7 +66,7 @@ function evalate() {
         } else { result.push(lines[i]); }
         i++;
     }
-    var resultS = result.toString();;
+    var resultS = result.toString();
     if (resultS.indexOf("<html>") == -1 && resultS.indexOf("<style>") == -1 && resultS.indexOf("<script>") == -1) {
         return result.join("\n").replaceAll("\n", "<br>");
     } else { return result.join("\n").replaceAll("\n", ""); }
@@ -89,7 +89,7 @@ checkbox.addEventListener('click', function() {
     }    
     if (checkbox.checked == false) {
         outputEditor.style = "display: none";
-        textarea.style = "display: none";
+        textarea.style = "display: default";
         var code = document.querySelector("code");
         code.style = "display: default";
     }
@@ -149,10 +149,22 @@ function upload() {
 	document.body.removeChild(upload);
 }
 function saveProject() {
+    replaceCommas();
     localStorage.setItem('tabs', TabContent);
     localStorage.setItem('noTabs', TabContent.length);
     localStorage.setItem('currenttab', currentTab);
 
+}
+//Fixes bug where everytime you insert a comma inside your project it splits it into mutiple tabs.
+function replaceCommas() {
+    var i = 0;
+    while (i < TabContent.length-1 || i == TabContent.length-1) { 
+        TabContent[i].replaceAll(",", "%comma%"); 
+        if (TabContent[i].indexOf("%end%") != -1) {
+            TabContent[i] += "%end%";
+        }
+        i++; 
+    }
 }
 window.addEventListener("blur", () => {
     saveProject();
