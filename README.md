@@ -1,4 +1,5 @@
 # Ink
+(Note: Ink is broken at the moment, fixes and updates will be coming soon)
 ![img](https://img.shields.io/github/license/darth-ness/ink) \
 
 # What is it?
