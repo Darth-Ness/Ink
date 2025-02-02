@@ -1,3 +1,4 @@
 #text{height:95% !important;border:none;padding:5px;position:absolute;top:19;background:transparent !important; scrollbar-width: none; left: 0px;}
 #text::-webkit-scrollbar{display: none;}
 div.prism-live{position:absolute!important;left:80!important; top: 46 !important;height:95% !important;width:95% !important; }
+#tb{width:55px;}
