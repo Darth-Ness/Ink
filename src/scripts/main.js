@@ -33,6 +33,7 @@ function changeTab(tabA) {
     console.log(tabA - 1)
     outputEditor.srcdoc = evalate();
     code.innerText = TabContent[tabA -1];
+    currentTab = tabA-1;
     setTimeout(() => {
         textarea.value = TabContent[tabA -1];
     }, 500); 
@@ -48,6 +49,7 @@ nt.addEventListener('click', function() {
     button.setAttribute('class', 'bgRed')
     document.getElementById("tb").appendChild(button);
     document.getElementById('tb').append(document.createElement("br"), document.createElement("br"));
+    TabContent.push("");
 });
 document.getElementById("closeTab").addEventListener('click', function() { 
     if (noTabs < 1) { return; }
@@ -155,7 +157,7 @@ function upload() {
 function saveProject() {
     replaceCommas();
     localStorage.setItem('tabs', TabContent);
-    localStorage.setItem('noTabs', TabContent.length);
+    localStorage.setItem('noTabs', noTabs);
     localStorage.setItem('currenttab', currentTab);
 
 }
