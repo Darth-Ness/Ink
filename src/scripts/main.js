@@ -30,10 +30,14 @@ if (localStorage.getItem("tabs") != null) {
 
 function changeTab(tabA) {
     var code = document.querySelector("code");
-    code.innerHTML = TabContent[tabA - 1];
-    textarea.value = TabContent[tabA - 1];
-    currentTab = tabA - 1;
+    console.log(tabA - 1)
     outputEditor.srcdoc = evalate();
+    code.innerText = TabContent[tabA -1];
+    setTimeout(() => {
+        textarea.value = TabContent[tabA -1];
+    }, 500); 
+
+
 }
 nt.addEventListener('click', function() {
     noTabs++;
