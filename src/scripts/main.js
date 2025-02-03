@@ -89,7 +89,7 @@ checkbox.addEventListener('click', function() {
     }    
     if (checkbox.checked == false) {
         outputEditor.style = "display: none";
-        textarea.style = "display: default";
+        textarea.style = "display: default;caret-color: rgb(248, 248, 242); font: inherit; font-synthesis: inherit; font-palette: inherit; tab-size: inherit; padding-left: 53.2px;";
         var code = document.querySelector("code");
         code.style = "display: default";
     }
