@@ -1,30 +1,25 @@
 # Ink
-(Note: Ink is broken at the moment, fixes and updates will be coming soon)
 ![img](https://img.shields.io/github/license/darth-ness/ink) \
 
 # What is it?
 Ink is a online notepad app, with a lot more features.
 
 # Features
-Edit Projects
-<br>
-Instantly view result
-<br>
-Calculator
-<br>
-Tabs
-<br>
-Support for HTML, CSS, and JS
-<br>
-Syntax Highlighting for the above langauges
-<br>
+* Edit Projects
+* Instantly view result
+* Calculator
+* Tabs
+* Support for HTML, CSS, and JS
+* Syntax Highlighting for the above langauges
+* Also supports Markdown
 Support for saving and loading your projects
 <br>
 Access the editor from anywhere
 
 # Example usage
-Want to get a quick answer for a math problem? Just type it in the editor, and you'll see the answer on the right.
-Are you a web developer? Type your code on the left, and the web page will appear on the right.
+Want to get a quick answer for a math problem? Just type it in the editor, and the answer will be available in the rendering screen.
+Are you a web developer? Type your code on the left, and the web page will be automatically rendered. 
+Want to make a site but don't know HTML, you can use Markdown!
 Note Taker? Ink can do that too.
 
 # Suggestion? Bug?
