@@ -24,18 +24,19 @@ function appendTabs() {
     noTabs = localStorage.getItem("noTabs");
 }
 if (localStorage.getItem("tabs") != null) {
-    var TabContent = localStorage.getItem("tabs").replaceAll("%commma%", ",").split("%end%");
+//    var TabContent = localStorage.getItem("tabs").replaceAll("%commma%", ",").split("%end%");
+    var TabContent = localStorage.getItem("tabs").split(",");
     appendTabs();
 } else { var TabContent = [] }
 
 function changeTab(tabA) {
     var code = document.querySelector("code");
     console.log(tabA - 1)
-    outputEditor.srcdoc = evalate();
     code.innerText = TabContent[tabA -1];
     currentTab = tabA-1;
     setTimeout(() => {
         textarea.value = TabContent[tabA -1];
+        outputEditor.srcdoc = evalate();
     }, 500); 
 
 
