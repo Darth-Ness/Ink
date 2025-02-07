@@ -70,7 +70,7 @@ function evalate() {
     while (i < lines.length) {
         if (lines[i].indexOf("+") != -1 || lines[i].indexOf("-") != -1 || lines[i].indexOf("*") != -1 || lines[i].indexOf("/") != -1) {
             try { result.push(eval(lines[i])); } catch (err) { result.push(lines[i]); }
-        } else { result.push(lines[i]); }
+        } else { result.push(downa.render(lines[i])); }
         i++;
     }
     var resultS = result.toString();
