@@ -1,11 +1,16 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="src/stylesheets/aqua.css">
-        <link rel="stylesheet" href="src/stylesheets/app.css">
         <meta name="viewport" content="width=device-width, initial-scale=1 "/>
         <meta name="description" content="Ink is an online editor with many features">
         <meta charset="UTF-8">
         <title>Ink</title>
+<style>
+    #text{height:95% !important;border:none;padding:5px;position:absolute;top:16;background:transparent !important; scrollbar-width: none; left: 0px;}
+    #text::-webkit-scrollbar{display: none;}
+    div.prism-live{position:absolute!important;left:80!important; top: 46 !important;height:95% !important;width:95% !important; }
+    #tb{width:55px;}
+</style>
     </head>
     <div class="banner center">
         <button onclick="save()">Download</button>
